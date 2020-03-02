@@ -3,7 +3,20 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 METEOR_HOME=$BUILD_DIR/.meteor/local
+
+echo "$PATH: "
+echo $PATH
+echo "endEcho$PATH"
+
 PATH=$METEOR_HOME/usr/bin:$METEOR_HOME/usr/lib/meteor/bin:$HOME/.meteor:$PATH
+
+echo "ls: "
+ls
+echo "endls"
+
+echo "pwd: "
+pwd
+echo "endpwd"
 
 indent() {
   c='s/^/       /'
