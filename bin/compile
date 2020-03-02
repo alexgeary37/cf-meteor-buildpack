@@ -8,8 +8,10 @@ echo "PATH: " + echo $PATH + " endEcho PATH"
 
 PATH=$METEOR_HOME/usr/bin:$METEOR_HOME/usr/lib/meteor/bin:$HOME/.meteor:$PATH
 
-echo "ls: " + ls + " endls"
-echo "pwd: " + pwd + " endpwd"
+echo "ls: "
+ls
+echo "pwd: "
+pwd
 
 indent() {
   c='s/^/       /'
@@ -65,9 +67,9 @@ install_meteor() {
     $METEOR_INSTALL_SCRIPT > install-meteor-verbose.sh
   chmod +x install-meteor-verbose.sh
 
-  echo install-meteor-verbose.sh:
+  echo CAT install-meteor-verbose.sh:
   cat install-meteor-verbose.sh
-  echo "\n"
+  echo "FINISHED CAT"
   
   status "Execute ./install-meteor-verbose.sh"
   ./install-meteor-verbose.sh
