@@ -8,9 +8,9 @@ echo "PATH: " + echo $PATH + " endEcho PATH"
 
 PATH=$METEOR_HOME/usr/bin:$METEOR_HOME/usr/lib/meteor/bin:$HOME/.meteor:$PATH
 
-echo "ls: "
+echo "ls:"
 ls
-echo "pwd: "
+echo "pwd:"
 pwd
 
 indent() {
@@ -80,13 +80,28 @@ install_meteor() {
 }
 
 build() {
+  echo "ls build:"
+  ls
+  
   (
     cd $BUILD_DIR
+    
+    echo "ls BUILD_DIR"
+    ls
+    
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
+    
+    echo "ls BUILD_DIR after meteor build"
+    ls
+    
     cd deploy/bundle/programs/server
     status "Installing npm dependencies"
     npm install 2>&1 | indent
+    
+    echo "ls SERVER"
+    ls
+    
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
